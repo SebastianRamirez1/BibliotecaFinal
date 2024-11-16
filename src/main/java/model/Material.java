@@ -5,55 +5,64 @@ public abstract class Material {
     private String titulo;
     private String autor;
     private String  editorial;
-    private int añoPublicacion; 
+    private int yearPublicacion; 
+    private int cantidadCopias;
     
+    public Material(String tipoMaterial, String titulo, String autor, String editorial, int yearPublicacion, int catidadCopias){
+        this.tipoMaterial = tipoMaterial;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.editorial = editorial;
+        this.yearPublicacion = yearPublicacion;
+        this.cantidadCopias = cantidadCopias;
+        
+    }
     public void setTipoMaterial(String tipoMaterial) {
         this.tipoMaterial = tipoMaterial;
+    }
+    
+    public String getTipoMaterial() {
+        return tipoMaterial;
     }
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-
-    public void setEditorial(String editorial) {
-        this.editorial = editorial;
-    }
-
-    public void setAñoPublicacion(int añoPublicacion) {
-        this.añoPublicacion = añoPublicacion;
-    }
-
-    public String getTipoMaterial() {
-        return tipoMaterial;
-    }
-
     public String getTitulo() {
         return titulo;
+    }
+    
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
     public String getAutor() {
         return autor;
     }
-
+    
+    public void setEditorial(String editorial) {
+        this.editorial = editorial;
+    }
+   
     public String getEditorial() {
         return editorial;
     }
+    
+    public void setYearPublicacion(int añoPublicacion) {
+        this.yearPublicacion = añoPublicacion;
+    }
 
-    public int getAñoPublicacion() {
-        return añoPublicacion;
+    public int getYearPublicacion() {
+        return yearPublicacion;
     }
  
-    
-    public Material(String tipoMaterial, String titulo, String autor, String editorial, int añoPublicacion){    
-        this.tipoMaterial = tipoMaterial;
-        this.titulo = titulo;
-        this.autor = autor;
-        this.editorial = editorial;
-        this.añoPublicacion = añoPublicacion;
-        
+    public void setCantidadCopias(int cantidadCopias){
+        this.cantidadCopias = cantidadCopias;
     }
+    
+    public int getCantidadCopias(){
+        return cantidadCopias;
+    }
+
 }

@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author ASUS
- */
-public class Libro {
+public class Libro extends Material{
+    
+    public Libro(String tipoMaterial, String titulo, String autor, String editorial, int yearPublicacion, int cantidadCopias) {
+        super(tipoMaterial, titulo, autor, editorial, yearPublicacion, cantidadCopias);
+        
+    }
     
 }
