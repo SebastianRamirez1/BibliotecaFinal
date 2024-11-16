@@ -8,29 +8,126 @@ public class LibroController extends MaterialController{
     
     
     @Override
-    <T> boolean registrar(T obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public <T> boolean registrar(T obj) {
+        try{
+        
+            if(obj == null){
+                return false;
+            
+            }else{
+                Libro objLibro = (Libro) obj;
+            
+                this.listLibro.add(objLibro);
+            
+                return true;
+            }
+        }catch (Exception e){   
+            return false;
+        }
+    
     }
 
     @Override
-    String buscar(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String buscar(String titulo) {
+        String result = "";
+            
+        for (Libro objArrayLibro: listLibro){
+            
+            if (objArrayLibro.getTitulo().equals(titulo)){
+                result = objArrayLibro.getTipoMaterial() + " - "
+                        + objArrayLibro.getTitulo() + " - "
+                        + objArrayLibro.getAutor() + " - "
+                        + objArrayLibro.getEditorial() + " -"
+                        + objArrayLibro.getYearPublicacion() + " - "
+                        + objArrayLibro.getCantidadCopias();
+                break;
+            }
+        }
+        
+        return result;
+        
     }
 
     @Override
-    <T> boolean actualizar(String name, T obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public <T> boolean actualizar(String titulo, T obj) {
+        
+        try{
+            if (obj == null){
+                return false;
+                
+            }else{
+                Libro objLibro = (Libro) obj;
+                
+                for (Libro objArrayLibro: this.listLibro){
+                    
+                    if (objArrayLibro.getTitulo().equals(titulo)){
+                        
+                        objArrayLibro.setTipoMaterial(objLibro.getTipoMaterial());
+                        objArrayLibro.setTitulo(objLibro.getTitulo());
+                        objArrayLibro.setAutor(objLibro.getAutor());
+                        objArrayLibro.setEditorial(objLibro.getEditorial());
+                        objArrayLibro.setYearPublicacion (objLibro.getYearPublicacion());
+                        objArrayLibro.setCantidadCopias (objLibro.getCantidadCopias());
+                        
+                        break;
+        
+                    }     
+                }
+                
+                return true;
+            }
+        }catch(Exception e){
+            return false;
+        }
     }
 
     @Override
-    boolean eliminar(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public boolean eliminar(String titulo) {
+        
+        try{
+            if (titulo == ""){
+                return false;
+                
+            }else{
+                
+                for (Libro objArrayLibro: this.listLibro){
 
+                    if (objArrayLibro.getTitulo().equals(titulo)){
+                        
+                        this.listLibro.remove(objArrayLibro);
+                        
+                        break;
+                    } 
+                }
+                
+                return true;
+                    
+            }
+            
+        }catch (Exception e){
+            return false;
+        }
+    }
     @Override
-    String listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String listar() {
+        
+        String listLibro = "";
+        
+        for (Libro objArrayLibro: this.listLibro){
+            
+            listLibro += objArrayLibro.getTipoMaterial() + " - "
+                        + objArrayLibro.getTitulo() + " - "
+                        + objArrayLibro.getAutor() + " - "
+                        + objArrayLibro.getEditorial() + " -"
+                        + objArrayLibro.getYearPublicacion() + " - "
+                        + objArrayLibro.getCantidadCopias() + "\n";
+            
+        }
+        
+        return listLibro;
     }
     
     
 }
+    
+   
