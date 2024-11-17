@@ -34,7 +34,7 @@ public class TrabajoFinal {
                 buscarLibro();
                 actualizarLibro();
                 eliminarLibro();
-                listarLibro();
+                listarLibros();
                 break;
                 
             case 2:
@@ -117,18 +117,113 @@ public class TrabajoFinal {
     }
 
     private static void actualizarLibro() {
-        
+        char sw;
+        do{
+            System.out.println("\nActualizando libro. ");
+            System.out.println("Ingrese el título del libro que desea buscar para actualizar: ");
+            String buscarTitulo = input.next();
+            
+            String result = objLibroController.buscar(buscarTitulo);
+            if(result != ""){
+                System.out.println("\nDatos del libro: \n" + result);
+                
+                System.out.println("\n¿Desea actualiazar los datos del libro? (S/N)");
+                sw = input.next().toUpperCase().charAt(0);
+                
+                if(sw == 'S'){
+                    System.out.println("\nIngrese el tipo de material del libro: ");
+                    String tipoMaterial = input.next();
+                    System.out.println("Ingrese el título del libro: ");
+                    String titulo = input.next();
+                    System.out.println("Ingrese el autor del libro: ");
+                    String autor = input.next();
+                    System.out.println("Ingrese la editorial del libro: ");
+                    String editorial = input.next();
+                    System.out.println("Ingrese el año de publicación del libro: ");
+                    int yearPublicacion = input.nextInt();
+                    System.out.println("Ingrese la cantidad de copias disponible del libro: ");
+                    int cantidadCopias = input.nextInt();
+            
+                    Libro objLibro = new Libro(tipoMaterial, titulo, autor, editorial, yearPublicacion, cantidadCopias);
+                    Generic<Libro> objGeneric = new Generic<>();
+                    objGeneric.setContent(objLibro);
+                    
+                    if(objLibroController.actualizar(titulo, objGeneric.getContent())){
+                        System.out.println("\nLibro actualizado correctamente.");
+                        
+                    }else{
+                        System.out.println("\nNo se pudo actualizar el libro, intentelo de nuevo.");
+                        
+                    }
+    
+                }
+            }else{
+                System.out.println("\nNo se pudo actualizar el libro, intentelo de nuevo.");
+            }
+            
+            System.out.println("\n¿Desea actualiazar los datos de otro libro? (S/N)");
+            sw = input.next().toUpperCase().charAt(0);
+        }while(sw == 'S');
         
     }
 
     private static void eliminarLibro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        char sw;
+        
+        do{
+            System.out.println("\nEliminando libro.");
+            System.out.println("Ingrese el título del libro que desea buscar para eliminar: ");
+            String titulo = input.next();
+            
+            String result = objLibroController.buscar(titulo);
+            if(result != ""){
+                System.out.println("\nDatos del libro: \n" + result);
+                
+                System.out.println("\n¿Desea eliminar el libro de la base de datos? (S/N)");
+                sw = input.next().toUpperCase().charAt(0);
+                
+                if(sw == 'S'){
+                    if (objLibroController.eliminar(titulo)){
+                        System.out.println("\nLibro eliminado con exito.");
+                        
+                    }else{
+                        System.out.println("No se pudo eliminar el libro, intentelo de nuevo. ");
+                        
+                    }
+                    
+                }
+                
+            }else{
+                System.out.println("No se pudo eliminar el libro, intentelo de nuevo. ");
+                
+            }
+            
+            System.out.println("¿Desea elimar otro libro? (S/N)");
+            sw = input.next().toUpperCase().charAt(0);
+        
+        }while (sw == 'S');
+        
+    }
+    private static void listarLibros() {
+        
+        System.out.println("Listando los libros registrados.");
+        
+        String listLibros = objLibroController.listar();
+        
+        if (listLibros != ""){
+            
+            System.out.println("Lista de libros registrado\n" + listLibros);
+            
+        }else{
+            
+            System.out.println("No hay libros registrados...");
+            
+        }
+        
     }
 
-    private static void listarLibro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    
+    
     private static void registrarRevista() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

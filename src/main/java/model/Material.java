@@ -8,7 +8,7 @@ public abstract class Material {
     private int yearPublicacion; 
     private int cantidadCopias;
     
-    public Material(String tipoMaterial, String titulo, String autor, String editorial, int yearPublicacion, int catidadCopias){
+    public Material(String tipoMaterial, String titulo, String autor, String editorial, int yearPublicacion, int cantidadCopias){
         this.tipoMaterial = tipoMaterial;
         this.titulo = titulo;
         this.autor = autor;

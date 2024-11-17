@@ -111,11 +111,11 @@ public class LibroController extends MaterialController{
     @Override
     public String listar() {
         
-        String listLibro = "";
+        String listLibros = "";
         
         for (Libro objArrayLibro: this.listLibro){
             
-            listLibro += objArrayLibro.getTipoMaterial() + " - "
+            listLibros += objArrayLibro.getTipoMaterial() + " - "
                         + objArrayLibro.getTitulo() + " - "
                         + objArrayLibro.getAutor() + " - "
                         + objArrayLibro.getEditorial() + " -"
@@ -124,7 +124,7 @@ public class LibroController extends MaterialController{
             
         }
         
-        return listLibro;
+        return listLibros;
     }
     
     
