@@ -92,6 +92,7 @@ public class TrabajoFinal {
             System.out.println("\n¿Desea registrar otro libro? (S/N)");
             sw = input.next().toUpperCase().charAt(0);
         }while(sw == 'S');
+        
     }
 
     private static void buscarLibro() {
@@ -114,10 +115,12 @@ public class TrabajoFinal {
             sw = input.next().toUpperCase().charAt(0);
             
         }while(sw == 'S');
+        
     }
 
     private static void actualizarLibro() {
         char sw;
+        
         do{
             System.out.println("\nActualizando libro. ");
             System.out.println("Ingrese el título del libro que desea buscar para actualizar: ");
@@ -127,7 +130,7 @@ public class TrabajoFinal {
             if(result != ""){
                 System.out.println("\nDatos del libro: \n" + result);
                 
-                System.out.println("\n¿Desea actualiazar los datos del libro? (S/N)");
+                System.out.println("\n¿Desea actualizar los datos del libro? (S/N)");
                 sw = input.next().toUpperCase().charAt(0);
                 
                 if(sw == 'S'){
@@ -148,7 +151,7 @@ public class TrabajoFinal {
                     Generic<Libro> objGeneric = new Generic<>();
                     objGeneric.setContent(objLibro);
                     
-                    if(objLibroController.actualizar(titulo, objGeneric.getContent())){
+                    if(objLibroController.actualizar(buscarTitulo, objGeneric.getContent())){
                         System.out.println("\nLibro actualizado correctamente.");
                         
                     }else{
@@ -179,7 +182,7 @@ public class TrabajoFinal {
             if(result != ""){
                 System.out.println("\nDatos del libro: \n" + result);
                 
-                System.out.println("\n¿Desea eliminar el libro de la base de datos? (S/N)");
+                System.out.println("\n¿Desea eliminar los datos del libro? (S/N)");
                 sw = input.next().toUpperCase().charAt(0);
                 
                 if(sw == 'S'){
@@ -187,18 +190,18 @@ public class TrabajoFinal {
                         System.out.println("\nLibro eliminado con exito.");
                         
                     }else{
-                        System.out.println("No se pudo eliminar el libro, intentelo de nuevo. ");
+                        System.out.println("\nNo se pudo eliminar el libro, intentelo de nuevo. ");
                         
                     }
                     
                 }
                 
             }else{
-                System.out.println("No se pudo eliminar el libro, intentelo de nuevo. ");
+                System.out.println("\nNo se pudo eliminar el libro, intentelo de nuevo. ");
                 
             }
             
-            System.out.println("¿Desea elimar otro libro? (S/N)");
+            System.out.println("\n¿Desea elimar otro libro? (S/N)");
             sw = input.next().toUpperCase().charAt(0);
         
         }while (sw == 'S');
@@ -212,7 +215,7 @@ public class TrabajoFinal {
         
         if (listLibros != ""){
             
-            System.out.println("\nLista de libros registrado\n" + listLibros);
+            System.out.println("\nLista de libros registrados:\n" + listLibros);
             
         }else{
             
@@ -225,25 +228,180 @@ public class TrabajoFinal {
     
     
     private static void registrarRevista() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+        char sw;
+        
+        do{
+            System.out.println("\nRegistrando Revista.");
+            
+            System.out.println("Ingrese el tipo de material de la revista: ");
+            String tipoMaterial = input.next();
+            System.out.println("Ingrese el título de la revista: ");
+            String titulo = input.next();
+            System.out.println("Ingrese el autor de la revista: ");
+            String autor = input.next();
+            System.out.println("Ingrese la editorial de la revista: ");
+            String editorial = input.next();
+            System.out.println("Ingrese el año de publicación de la revista: ");
+            int yearPublicacion = input.nextInt();
+            System.out.println("Ingrese la cantidad de copias disponible de la revista: ");
+            int cantidadCopias = input.nextInt();
+            System.out.println("Ingrese el tipo de la revista: ");
+            String tipoRevista = input.next();
+            
+            Revista objRevista = new Revista(tipoMaterial, titulo, autor, editorial, yearPublicacion, cantidadCopias, tipoRevista);
+            Generic<Revista> objGeneric = new Generic<>();
+            objGeneric.setContent(objRevista);
+            
+            if(objRevistaController.registrar(objGeneric.getContent())){
+                System.out.println("\nRevista registrada correctamente");
+                
+            }else{
+                System.out.println("\nNo se pudo registrar la revista intente nuevamente.");
+            }
+            
+            System.out.println("\n¿Desea registrar otra revista? (S/N)");
+            sw = input.next().toUpperCase().charAt(0);
+        }while(sw == 'S');
+       
     }
 
     private static void buscarRevista() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        char sw;
+        
+        do{
+            System.out.println("\nBuscando Revista.");
+            System.out.println("Ingrese el título de la revista que desea consultar: ");
+            String titulo = input.next();
+            
+            String result = objRevistaController.buscar(titulo);
+            if(result != ""){
+                System.out.println("Datos de la revista: \n" + result);
+                
+            }else{
+                System.out.println("Revista no encontrada, intente nuevamente");
+            }
+            
+            System.out.println("\n¿Desea buscar otra revista? (S/N)");
+            sw = input.next().toUpperCase().charAt(0);
+            
+        }while(sw == 'S');
+       
+        
     }
 
     private static void actualizarRevista() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        char sw;
+        
+        do{
+            System.out.println("\nActualizando Revista. ");
+            System.out.println("Ingrese el título de la revista que desea buscar para actualizar: ");
+            String buscarTitulo = input.next();
+            
+            String result = objRevistaController.buscar(buscarTitulo);
+            if(result != ""){
+                System.out.println("\nDatos de la revista: \n" + result);
+                
+                System.out.println("\n¿Desea actualizar los datos de la revista? (S/N)");
+                sw = input.next().toUpperCase().charAt(0);
+                
+                if(sw == 'S'){
+                    System.out.println("\nIngrese el tipo de material de la revista: ");
+                    String tipoMaterial = input.next();
+                    System.out.println("Ingrese el título de la revista: ");
+                    String titulo = input.next();
+                    System.out.println("Ingrese el autor de la revista: ");
+                    String autor = input.next();
+                    System.out.println("Ingrese la editorial de la revista: ");
+                    String editorial = input.next();
+                    System.out.println("Ingrese el año de publicación de la revista: ");
+                    int yearPublicacion = input.nextInt();
+                    System.out.println("Ingrese la cantidad de copias disponible de la revista: ");
+                    int cantidadCopias = input.nextInt();
+                    System.out.println("Ingrese el tipo de la revista: ");
+                    String tipoRevista = input.next();
+                    
+                    Revista objRevista = new Revista(tipoMaterial, titulo, autor, editorial, yearPublicacion, cantidadCopias, tipoRevista);
+                    Generic<Revista> objGeneric = new Generic<>();
+                    objGeneric.setContent(objRevista);
+                    
+                    if(objRevistaController.actualizar(buscarTitulo, objGeneric.getContent())){
+                        System.out.println("\nRevista actualizada correctamente.");
+                        
+                    }else{
+                        System.out.println("\nNo se pudo actualizar la revista, intentelo de nuevo.");
+                        
+                    }
+    
+                }
+            }else{
+                System.out.println("\nNo se pudo actualizar la revista, intentelo de nuevo.");
+            }
+            
+            System.out.println("\n¿Desea actualiazar los datos de otra revista? (S/N)");
+            sw = input.next().toUpperCase().charAt(0);
+        }while(sw == 'S');
+        
     }
 
     private static void eliminarRevista() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        char sw;
+        
+        do{
+            System.out.println("\nEliminando Revista.");
+            System.out.println("Ingrese el título de la revista que desea buscar para eliminar: ");
+            String titulo = input.next();
+            
+            String result = objRevistaController.buscar(titulo);
+            if(result != ""){
+                System.out.println("\nDatos de la revista: \n" + result);
+                
+                System.out.println("\n¿Desea eliminar los datos de la revista? (S/N)");
+                sw = input.next().toUpperCase().charAt(0);
+                
+                if(sw == 'S'){
+                    if (objRevistaController.eliminar(titulo)){
+                        System.out.println("\nRevista eliminada con exito.");
+                        
+                    }else{
+                        System.out.println("\nNo se pudo eliminar la revista, intentelo de nuevo. ");
+                        
+                    }
+                    
+                }
+                
+            }else{
+                System.out.println("\nNo se pudo eliminar la revista, intentelo de nuevo. ");
+                
+            }
+            
+            System.out.println("\n¿Desea elimar otra revista? (S/N)");
+            sw = input.next().toUpperCase().charAt(0);
+        
+        }while (sw == 'S');
+         
     }
 
     private static void listarRevista() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        System.out.println("Listando las revistas registradas.");
+        
+        String listRevistas = objRevistaController.listar();
+        
+        if (listRevistas != ""){
+            
+            System.out.println("\nLista de revistas registradas:\n" + listRevistas);
+            
+        }else{
+            
+            System.out.println("\nNo hay revistas registradas...");
+            
+        }
+        
     }
 
+    
+    
     private static void registrarMaterialVideografico() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

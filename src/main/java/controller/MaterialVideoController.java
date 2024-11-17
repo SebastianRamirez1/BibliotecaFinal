@@ -7,27 +7,27 @@ public class MaterialVideoController extends MaterialController{
     private ArrayList<MaterialVideografico> listMaterialVideografico = new ArrayList<>();
     
     @Override
-    <T> boolean registrar(T obj) {
+    public <T> boolean registrar(T obj) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    String buscar(String name) {
+    public String buscar(String name) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    <T> boolean actualizar(String name, T obj) {
+    public <T> boolean actualizar(String name, T obj) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    boolean eliminar(String name) {
+    public boolean eliminar(String name) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    String listar() {
+    public String listar() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

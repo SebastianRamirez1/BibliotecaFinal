@@ -31,7 +31,7 @@ public class LibroController extends MaterialController{
     public String buscar(String titulo) {
         String result = "";
             
-        for (Libro objArrayLibro: listLibro){
+        for (Libro objArrayLibro: this.listLibro){
             
             if (objArrayLibro.getTitulo().equals(titulo)){
                 result = objArrayLibro.getTipoMaterial() + " - "
@@ -66,8 +66,8 @@ public class LibroController extends MaterialController{
                         objArrayLibro.setTitulo(objLibro.getTitulo());
                         objArrayLibro.setAutor(objLibro.getAutor());
                         objArrayLibro.setEditorial(objLibro.getEditorial());
-                        objArrayLibro.setYearPublicacion (objLibro.getYearPublicacion());
-                        objArrayLibro.setCantidadCopias (objLibro.getCantidadCopias());
+                        objArrayLibro.setYearPublicacion(objLibro.getYearPublicacion());
+                        objArrayLibro.setCantidadCopias(objLibro.getCantidadCopias());
                         
                         break;
         
@@ -79,6 +79,7 @@ public class LibroController extends MaterialController{
         }catch(Exception e){
             return false;
         }
+        
     }
 
     @Override
@@ -107,7 +108,9 @@ public class LibroController extends MaterialController{
         }catch (Exception e){
             return false;
         }
+        
     }
+    
     @Override
     public String listar() {
         
@@ -118,15 +121,15 @@ public class LibroController extends MaterialController{
             listLibros += objArrayLibro.getTipoMaterial() + " - "
                         + objArrayLibro.getTitulo() + " - "
                         + objArrayLibro.getAutor() + " - "
-                        + objArrayLibro.getEditorial() + " -"
+                        + objArrayLibro.getEditorial() + " - "
                         + objArrayLibro.getYearPublicacion() + " - "
                         + objArrayLibro.getCantidadCopias() + "\n";
             
         }
         
         return listLibros;
+        
     }
-    
     
 }
     

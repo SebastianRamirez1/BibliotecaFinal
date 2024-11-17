@@ -7,28 +7,128 @@ public class RevistaController extends MaterialController{
     private ArrayList<Revista> listRevista = new ArrayList<>();
     
     @Override
-    <T> boolean registrar(T obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public <T> boolean registrar(T obj) {
+        try{
+        
+            if(obj == null){
+                return false;
+            
+            }else{
+                Revista objRevista = (Revista) obj;
+            
+                this.listRevista.add(objRevista);
+            
+                return true;
+            }
+        }catch (Exception e){   
+            return false;
+        }
     }
 
     @Override
-    String buscar(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String buscar(String titulo) {
+        String result = "";
+            
+        for (Revista objArrayRevista: this.listRevista){
+            
+            if (objArrayRevista.getTitulo().equals(titulo)){
+                result = objArrayRevista.getTipoMaterial() + " - "
+                        + objArrayRevista.getTitulo() + " - "
+                        + objArrayRevista.getAutor() + " - "
+                        + objArrayRevista.getEditorial() + " - "
+                        + objArrayRevista.getYearPublicacion() + " - "
+                        + objArrayRevista.getCantidadCopias() + " - "
+                        + objArrayRevista.getTipoRevista();
+                break;
+            }
+        }
+        
+        return result;
     }
 
     @Override
-    <T> boolean actualizar(String name, T obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public <T> boolean actualizar(String titulo, T obj) {
+        
+        try{
+            if (obj == null){
+                return false;
+                
+            }else{
+                Revista objRevista = (Revista) obj;
+                
+                for (Revista objArrayRevista: this.listRevista){
+                    
+                    if (objArrayRevista.getTitulo().equals(titulo)){
+                        
+                        objArrayRevista.setTipoMaterial(objRevista.getTipoMaterial());
+                        objArrayRevista.setTitulo(objRevista.getTitulo());
+                        objArrayRevista.setAutor(objRevista.getAutor());
+                        objArrayRevista.setEditorial(objRevista.getEditorial());
+                        objArrayRevista.setYearPublicacion(objRevista.getYearPublicacion());
+                        objArrayRevista.setCantidadCopias(objRevista.getCantidadCopias());
+                        objArrayRevista.setTipoRevista(objRevista.getTipoRevista());
+                        
+                        break;
+        
+                    }     
+                }
+                
+                return true;
+            }
+        }catch(Exception e){
+            return false;
+            
+        }
+        
     }
 
     @Override
-    boolean eliminar(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean eliminar(String titulo) {
+        
+        try{
+            if (titulo == ""){
+                return false;
+                
+            }else{
+                
+                for (Revista objArrayRevista: this.listRevista){
+
+                    if (objArrayRevista.getTitulo().equals(titulo)){
+                        
+                        this.listRevista.remove(objArrayRevista);
+                        
+                        break;
+                    } 
+                }
+                
+                return true;
+                    
+            }
+            
+        }catch (Exception e){
+            return false;
+        }
+        
     }
 
     @Override
-    String listar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String listar() {
+        
+        String listRevistas = "";
+        
+        for (Revista objArrayRevista: this.listRevista){
+            
+            listRevistas += objArrayRevista.getTipoMaterial() + " - "
+                        + objArrayRevista.getTitulo() + " - "
+                        + objArrayRevista.getAutor() + " - "
+                        + objArrayRevista.getEditorial() + " - "
+                        + objArrayRevista.getYearPublicacion() + " - "
+                        + objArrayRevista.getCantidadCopias() + " - "
+                        + objArrayRevista.getTipoRevista() + "\n";
+            
+        }
+        
+        return listRevistas;
     }
     
 }
