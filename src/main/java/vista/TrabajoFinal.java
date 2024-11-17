@@ -212,11 +212,11 @@ public class TrabajoFinal {
         
         if (listLibros != ""){
             
-            System.out.println("Lista de libros registrado\n" + listLibros);
+            System.out.println("\nLista de libros registrado\n" + listLibros);
             
         }else{
             
-            System.out.println("No hay libros registrados...");
+            System.out.println("\nNo hay libros registrados...");
             
         }
         
