@@ -37,7 +37,7 @@ public class LibroController extends MaterialController{
                 result = objArrayLibro.getTipoMaterial() + " - "
                         + objArrayLibro.getTitulo() + " - "
                         + objArrayLibro.getAutor() + " - "
-                        + objArrayLibro.getEditorial() + " -"
+                        + objArrayLibro.getEditorial() + " - "
                         + objArrayLibro.getYearPublicacion() + " - "
                         + objArrayLibro.getCantidadCopias();
                 break;

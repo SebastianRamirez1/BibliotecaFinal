@@ -2,7 +2,7 @@ package controller;
 import java.util.ArrayList;
 import model.MaterialVideografico;
 
-public class MaterialVideoGraficoController extends MaterialController{
+public class MaterialVideoController extends MaterialController{
 
     private ArrayList<MaterialVideografico> listMaterialVideografico = new ArrayList<>();
     

@@ -4,7 +4,7 @@ public class Generic<T>{
     
     private T _content;
 
-    public Generic(T _content) {
+    public Generic() {
         this._content = _content;
     }
 
