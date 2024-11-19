@@ -3,30 +3,39 @@ package model;
 
 public class MaterialVideografico extends Material{
     
-    private int duracionHrs;
-    private int duracionMins;
+    private int duracionHoras;
+    private int duracionMinutos;
+    private String formato;
     
-    public MaterialVideografico(String tipoMaterial, String titulo, String autor, String editorial, int yearPublicacion, int catidadCopias, int duracionHrs, int duracionMins) {
+    public MaterialVideografico(String tipoMaterial, String titulo, String autor, String editorial, int yearPublicacion, int catidadCopias, int duracionHoras, int duracionMinutos, String formato) {
         super(tipoMaterial, titulo, autor, editorial, yearPublicacion, catidadCopias);
         
-        this.duracionHrs = duracionHrs;
-        this.duracionMins = duracionMins;
+        this.duracionHoras = duracionHoras;
+        this.duracionMinutos = duracionMinutos;
+        this.formato = formato;
     }
 
-    public int getDuracionHrs() {
-        return duracionHrs;
+    public int getDuracionHoras() {
+        return duracionHoras;
     }
 
-    public void setDuracionHrs(int duracionHrs) {
-        this.duracionHrs = duracionHrs;
+    public void setDuracionHoras(int duracionHoras) {
+        this.duracionHoras = duracionHoras;
     }
 
-    public int getDuracionMins() {
-        return duracionMins;
+    public int getDuracionMinutos() {
+        return duracionMinutos;
     }
 
-    public void setDuracionMins(int duracionMins) {
-        this.duracionMins = duracionMins;
+    public void setDuracionMinutos(int duracionMinutos) {
+        this.duracionMinutos = duracionMinutos;
     }
-    
+  
+    public String getFormato() {
+        return formato;
+    }
+
+    public void setFormato(String formato) {
+        this.formato = formato;
+    }
 }

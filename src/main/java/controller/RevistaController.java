@@ -23,6 +23,7 @@ public class RevistaController extends MaterialController{
         }catch (Exception e){   
             return false;
         }
+        
     }
 
     @Override

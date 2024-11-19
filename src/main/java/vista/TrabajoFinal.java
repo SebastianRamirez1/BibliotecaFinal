@@ -22,7 +22,7 @@ public class TrabajoFinal {
         
         do{
         System.out.println("Ingrese con que tipo de material desea operar teniendo en cuenta las siguientes opciones: "
-        + "\n1:Libro \n2:Revista \n3:Material videográfico");
+        + "\n1:Libro \n2:Revista \n3:Material videografico");
         material = input.nextByte();          
         
         }while(material < 1 || material > 3);
@@ -105,7 +105,7 @@ public class TrabajoFinal {
             
             String result = objLibroController.buscar(titulo);
             if(result != ""){
-                System.out.println("Datos del libro: \n" + result);
+                System.out.println("\nDatos del libro: \n" + result);
                 
             }else{
                 System.out.println("Libro no encontrado, intente nuevamente");
@@ -276,7 +276,7 @@ public class TrabajoFinal {
             
             String result = objRevistaController.buscar(titulo);
             if(result != ""){
-                System.out.println("Datos de la revista: \n" + result);
+                System.out.println("\nDatos de la revista: \n" + result);
                 
             }else{
                 System.out.println("Revista no encontrada, intente nuevamente");
@@ -286,8 +286,7 @@ public class TrabajoFinal {
             sw = input.next().toUpperCase().charAt(0);
             
         }while(sw == 'S');
-       
-        
+            
     }
 
     private static void actualizarRevista() {
@@ -403,22 +402,183 @@ public class TrabajoFinal {
     
     
     private static void registrarMaterialVideografico() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+        char sw;
+        
+        do{
+            System.out.println("\nRegistrando Material Videografico.");
+            
+            System.out.println("Ingrese el tipo de material del material videografico: ");
+            String tipoMaterial = input.next();
+            System.out.println("Ingrese el título del material videografico: ");
+            String titulo = input.next();
+            System.out.println("Ingrese el autor del material videografico: ");
+            String autor = input.next();
+            System.out.println("Ingrese la editorial del material videografico: ");
+            String editorial = input.next();
+            System.out.println("Ingrese el año de publicación del material videografico: ");
+            int yearPublicacion = input.nextInt();
+            System.out.println("Ingrese la cantidad de copias disponible del material videografico: ");
+            int cantidadCopias = input.nextInt();
+            System.out.println("Ingrese la cantidad de horas que dura el material videogrico: ");
+            int duracionHoras = input.nextInt();
+            System.out.println("Ingrese la cantidad de minutos que dura el material videogrico: ");
+            int duracionMinutos = input.nextInt();
+            System.out.println("Ingrese el formato del material videografico: ");
+            String formato = input.next();
+            
+            MaterialVideografico objMaterialVideografico = new MaterialVideografico(tipoMaterial, titulo, autor, 
+                    editorial, yearPublicacion, cantidadCopias, duracionHoras, duracionMinutos, formato);
+            
+            Generic<MaterialVideografico> objGeneric = new Generic<>();
+            objGeneric.setContent(objMaterialVideografico);
+            
+            if(objMaterialVideoController.registrar(objGeneric.getContent())){
+                System.out.println("\nMaterial videografico registrado correctamente");
+                
+            }else{
+                System.out.println("\nNo se pudo registrar el material videografico intente nuevamente.");
+            }
+            
+            System.out.println("\n¿Desea registrar otro material videografico? (S/N)");
+            sw = input.next().toUpperCase().charAt(0);
+        }while(sw == 'S');
+        
+        
     }
 
     private static void buscarMaterialVideografico() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        char sw;
+        
+        do{
+            System.out.println("\nBuscando Material Videografico.");
+            System.out.println("Ingrese el título del material videografico que desea consultar: ");
+            String titulo = input.next();
+            
+            String result = objMaterialVideoController.buscar(titulo);
+            if(result != ""){
+                System.out.println("\nDatos del material videografico \n" + result);
+                
+            }else{
+                System.out.println("Material videografico no encontrado, intente nuevamente");
+            }
+            
+            System.out.println("\n¿Desea buscar otro material videografico? (S/N)");
+            sw = input.next().toUpperCase().charAt(0);
+            
+        }while(sw == 'S');
+     }
 
     private static void actualizarMaterialVideografico() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        char sw;
+        
+        do{
+            System.out.println("\nActualizando Material Videografico. ");
+            System.out.println("Ingrese el título del material videografico que desea buscar para actualizar: ");
+            String buscarTitulo = input.next();
+            
+            String result = objMaterialVideoController.buscar(buscarTitulo);
+            if(result != ""){
+                System.out.println("\nDatos del material videografico: \n" + result);
+                
+                System.out.println("\n¿Desea actualizar los datos del material videografico? (S/N)");
+                sw = input.next().toUpperCase().charAt(0);
+                
+                if(sw == 'S'){
+                    System.out.println("\nIngrese el tipo de material del material videografico: ");
+                    String tipoMaterial = input.next();
+                    System.out.println("Ingrese el título del material videografico: ");
+                    String titulo = input.next();
+                    System.out.println("Ingrese el autor del material videografico: ");
+                    String autor = input.next();
+                    System.out.println("Ingrese la editorial del material videografico ");
+                    String editorial = input.next();
+                    System.out.println("Ingrese el año de publicación del material videografico: ");
+                    int yearPublicacion = input.nextInt();
+                    System.out.println("Ingrese la cantidad de copias disponible de l material videografico: ");
+                    int cantidadCopias = input.nextInt();
+                    System.out.println("Ingrese la cantidad de horas que dura el material videografico: ");
+                    int duracionHoras = input.nextInt();
+                    System.out.println("Ingrese la cantidad de minutos que dura el material videografico: ");
+                    int duracionMinutos = input.nextInt();                    
+                    System.out.println("Ingrese el formato del material videografico: ");
+                    String formato = input.next();  
+                    
+                    MaterialVideografico objMaterialVideografico = new MaterialVideografico(tipoMaterial, titulo, autor, 
+                            editorial, yearPublicacion, cantidadCopias, duracionHoras, duracionMinutos, formato);
+                    
+                    Generic<MaterialVideografico> objGeneric = new Generic<>();
+                    objGeneric.setContent(objMaterialVideografico);
+                    
+                    if(objMaterialVideoController.actualizar(buscarTitulo, objGeneric.getContent())){
+                        System.out.println("\nMaterial videografico actualizado correctamente.");
+                        
+                    }else{
+                        System.out.println("\nNo se pudo actualizar el material videografico, intentelo de nuevo.");
+                        
+                    }
+    
+                }
+            }else{
+                System.out.println("\nNo se pudo actualizar el material videografico, intentelo de nuevo.");
+            }
+            
+            System.out.println("\n¿Desea actualiazar los datos de otro material videografico? (S/N)");
+            sw = input.next().toUpperCase().charAt(0);
+        }while(sw == 'S');
     }
 
     private static void eliminarMaterialVideografico() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        char sw;
+        
+        do{
+            System.out.println("\nEliminando Material Videografico.");
+            System.out.println("Ingrese el título del material videografico que desea buscar para eliminar: ");
+            String titulo = input.next();
+            
+            String result = objMaterialVideoController.buscar(titulo);
+            if(result != ""){
+                System.out.println("\nDatos del material videografico: \n" + result);
+                
+                System.out.println("\n¿Desea eliminar los datos del material videografico? (S/N)");
+                sw = input.next().toUpperCase().charAt(0);
+                
+                if(sw == 'S'){
+                    if (objMaterialVideoController.eliminar(titulo)){
+                        System.out.println("\nMaterial videografico eliminado con exito.");
+                        
+                    }else{
+                        System.out.println("\nNo se pudo eliminar el material videografico, intentelo de nuevo. ");
+                        
+                    }
+                    
+                }
+                
+            }else{
+                System.out.println("\nNo se pudo eliminar el material videografico, intentelo de nuevo. ");
+                
+            }
+            
+            System.out.println("\n¿Desea elimar otro material videografico? (S/N)");
+            sw = input.next().toUpperCase().charAt(0);
+        
+        }while (sw == 'S');
     }
 
     private static void listarMaterialVideografico() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        System.out.println("\nListando los materiales videograficos registrados.");
+        
+        String listMaterialVideografico = objMaterialVideoController.listar();
+        
+        if (listMaterialVideografico != ""){
+            
+            System.out.println("Lista de materiales videograficos registrados:\n" + listMaterialVideografico);
+            
+        }else{
+            
+            System.out.println("\nNo hay materiales videografico registrados...");
+            
+        }
     }
 }
