@@ -12,51 +12,108 @@ public class TrabajoFinal {
     static MaterialVideoController objMaterialVideoController = new MaterialVideoController(); 
     
     public static void main(String[] args) {
-        tipoMaterial();
-        
+        iniciar();
                
     }
 
-    private static void tipoMaterial() {
-        byte material;
-        
+    private static void iniciar() {
+        // Presentación del menú de opciones al usuario
+        int opcion = 0;
+        byte tipo = 0;
         do{
-        System.out.println("Ingrese con que tipo de material desea operar teniendo en cuenta las siguientes opciones: "
-        + "\n1:Libro \n2:Revista \n3:Material videografico");
-        material = input.nextByte();          
-        
-        }while(material < 1 || material > 3);
-         
-        switch(material){
-            
-            case 1:      
-                registrarLibro();
-                buscarLibro();
-                actualizarLibro();
-                eliminarLibro();
-                listarLibros();
-                break;
-                
-            case 2:
-                registrarRevista();
-                buscarRevista();
-                actualizarRevista();
-                eliminarRevista();
-                listarRevista(); 
-                break;
-                
-            case 3:
-                registrarMaterialVideografico();
-                buscarMaterialVideografico();
-                actualizarMaterialVideografico();
-                eliminarMaterialVideografico();
-                listarMaterialVideografico();
-                break;
-        }
+            mostrarMenu();
+            opcion = input.nextInt();
 
-        
-       
+            // Ejecuta la opción seleccionada
+            switch (opcion) {
+                case 1:
+                    System.out.println("Ingrese 1 para libro, 2 para revista, 3 para material");
+                    tipo = input.nextByte();
+                    switch (tipo) {
+                        case 1:
+                            registrarLibro();
+                            break;
+                        case 2:
+                            registrarRevista();
+                            break;
+                        case 3:
+                            registrarMaterialVideografico();
+                            break;
+                        default:
+                            System.out.println("opcion invalida");
+                            break;
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("Libros: ");
+                    listarLibros();
+                    System.out.println("Revistas: ");
+                    listarRevista();
+                    System.out.println("Material videoGrafico");
+                    listarMaterialVideografico();
+                    break;
+                case 3:
+                    System.out.println("Ingrese 1 para libro, 2 para revista, 3 para material");
+                    tipo = input.nextByte();
+                    switch (tipo) {
+                        case 1:
+                            eliminarLibro();
+                            break;
+                        case 2:
+                            eliminarRevista();
+                            break;
+                        case 3:
+                            eliminarMaterialVideografico();
+                            break;
+                        default:
+                            System.out.println("opcion invalida");
+                            break;
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Ingrese 1 para libro, 2 para revista, 3 para material");
+                    tipo = input.nextByte();
+                    switch (tipo) {
+                        case 1:
+                            actualizarLibro();
+                            break;
+                        case 2:
+                            actualizarRevista();
+                            break;
+                        case 3:
+                            actualizarMaterialVideografico();
+                            break;
+                        default:
+                            System.out.println("opcion invalida");
+                            break;
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Gracias por usar el sistema.");
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+                    break;
+            }
+        } while(opcion != 5); // El ciclo continúa hasta que el usuario elige salir
+
+        input.close(); // Cierra el escáner al final
     }
+    
+    private static void mostrarMenu() {
+        // Muestra el menú de opciones
+        System.out.println("\nBienvenido a la Biblioteca Municipal XYZ");
+        System.out.println("1. Agregar Material");
+        System.out.println("2. Listar Material");
+        System.out.println("3. Eliminar Material");
+        System.out.println("4. Actualizar Material");
+        System.out.println("5. Salir");
+        System.out.print("Seleccione una opción: ");
+    }
+
 
     private static void registrarLibro() {
         
