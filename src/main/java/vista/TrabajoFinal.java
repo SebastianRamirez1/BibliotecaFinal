@@ -27,7 +27,7 @@ public class TrabajoFinal {
             // Ejecuta la opción seleccionada
             switch (opcion) {
                 case 1:
-                    System.out.println("Ingrese 1 para libro, 2 para revista, 3 para material");
+                    System.out.println("Ingrese 1 para libro, 2 para revista, 3 para materialvideografico");
                     tipo = input.nextByte();
                     switch (tipo) {
                         case 1:
@@ -54,7 +54,7 @@ public class TrabajoFinal {
                     listarMaterialVideografico();
                     break;
                 case 3:
-                    System.out.println("Ingrese 1 para libro, 2 para revista, 3 para material");
+                    System.out.println("Ingrese 1 para libro, 2 para revista, 3 para materialvideografico");
                     tipo = input.nextByte();
                     switch (tipo) {
                         case 1:
@@ -73,7 +73,7 @@ public class TrabajoFinal {
                     break;
 
                 case 4:
-                    System.out.println("Ingrese 1 para libro, 2 para revista, 3 para material");
+                    System.out.println("Ingrese 1 para libro, 2 para revista, 3 para materialvideografico");
                     tipo = input.nextByte();
                     switch (tipo) {
                         case 1:
@@ -92,13 +92,32 @@ public class TrabajoFinal {
                     break;
 
                 case 5:
-                    System.out.println("Gracias por usar el sistema.");
+                    System.out.println("Ingrese 1 para libro, 2 para revista, 3 para materialvideografico");
+                    tipo = input.nextByte();
+                    switch (tipo) {
+                        case 1:
+                            buscarLibro();
+                            break;
+                        case 2:
+                            buscarRevista();
+                            break;
+                        case 3:
+                            buscarMaterialVideografico();
+                            break;
+                        default:
+                            System.out.println("opcion invalida");
+                            break;
+                    }
+                    break;
+                    
+                case 6:
+                    
                     break;
                 default:
                     System.out.println("Opción inválida.");
                     break;
             }
-        } while(opcion != 5); // El ciclo continúa hasta que el usuario elige salir
+        } while(opcion != 6); // El ciclo continúa hasta que el usuario elige salir
 
         input.close(); // Cierra el escáner al final
     }
@@ -110,7 +129,8 @@ public class TrabajoFinal {
         System.out.println("2. Listar Material");
         System.out.println("3. Eliminar Material");
         System.out.println("4. Actualizar Material");
-        System.out.println("5. Salir");
+        System.out.println("5. Buscar Material");
+        System.out.println("6. Salir");
         System.out.print("Seleccione una opción: ");
     }
 
